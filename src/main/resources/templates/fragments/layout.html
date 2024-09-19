@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="refresh" content="no-cache" />
+    <meta http-equiv="refresh" content="0" />
+    <meta http-equiv="content-security-policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>H-media</title>
+
+    <th:block th:replace="~{fragments/config :: configFragment_css}"></th:block>
+    <th:block th:replace="~{fragments/config :: configFragment_js}"></th:block>
+  </head>
+
+  <body id="page-top">
+    <th:block th:replace="~{fragments/header :: headerFragment}"></th:block>
+    <th:block layout:fragment="content"></th:block>
+    <th:block th:replace="~{fragments/footer :: footerFragment}"></th:block>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}" lang="ko">
+<th:block layout:fragment="content">
+	<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
+
+		<header>
+			<a class="logo" th:href="@{/}">Massively</a>
+		</header>
+
+		<!-- Intro -->
+		<div id="intro">
+			<h1>This is<br />
+				<span th:text="${siteName}">Massively</span>
+			</h1>
+			<p th:utext="${siteDescription}">A free, fully responsive HTML5 + CSS3 site template designed...</p>
+			<ul class="actions">
+				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+			</ul>
+		</div>
+
+		<!-- Main Content -->
+		<div id="main">
+			<!-- Featured Post -->
+			<article class="post featured">
+				<header class="major">
+					<span class="date" th:text="${featuredPostDate}">April 25, 2017</span>
+					<h2><a th:href="${featuredPostLink}" th:text="${featuredPostTitle}">And this is a<br />massive headline</a></h2>
+					<p th:text="${featuredPostSummary}">Aenean ornare velit lacus varius enim ullamcorper proin...</p>
+				</header>
+				<a th:href="${featuredPostLink}" class="image main">
+					<img th:src="@{/images/pic01.jpg}" alt="Featured Image" />
+				</a>
+				<ul class="actions special">
+					<li><a th:href="${featuredPostLink}" class="button large">Full Story</a></li>
+				</ul>
+			</article>
+
+			<!-- Additional Posts -->
+			<section class="posts">
+				<article th:each="post : ${posts}">
+					<header>
+						<span class="date" th:text="${post.date}">April 24, 2017</span>
+						<h2><a th:href="${post.link}" th:text="${post.title}">Sed magna<br />ipsum faucibus</a></h2>
+					</header>
+					<a th:href="${post.link}" class="image fit">
+						<img th:src="${post.imageUrl}" alt="Post Image" />
+					</a>
+					<p th:text="${post.summary}">Donec eget ex magna. Interdum et malesuada fames ac ante...</p>
+					<ul class="actions special">
+						<li><a th:href="${post.link}" class="button">Full Story</a></li>
+					</ul>
+				</article>
+			</section>
+		</div>
+
+		<!-- 풋터 포함 -->
+		<div th:replace="~{fragments/footer :: footer}"></div>
+
+	</div>
+
+	<!-- Copyright -->
+	<div id="copyright">
+		<ul><li>&copy; <span th:text="${siteOwner}">Untitled</span></li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+	</div>
+
+	</body>
+</th:block>
+</html>
